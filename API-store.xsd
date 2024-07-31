@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"  attributeFormDefault="unqualified">
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Head" />
+        <xs:element ref="Body" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MessageID" type="xs:string" />
+  <xs:element name="Date" type="xs:string" />
+  <xs:element name="MessageType" type="xs:string" />
+  <xs:element name="SystemID" type="xs:string" />
+  <xs:element name="CompanyID" type="xs:string" />
+  <xs:element name="ReplyToQ" type="xs:string" />
+  <xs:element name="Head">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="MessageID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Date" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MessageType" />
+        <xs:element minOccurs="1" maxOccurs="1" ref="Sender" />
+        <xs:element minOccurs="1" maxOccurs="1" ref="Recipient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1"  ref="SystemID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CompanyID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ReplyToQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Recipient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" ref="SystemID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CompanyID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ReplyToQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="Body">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" ref="AdvancedShipNotice" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AdvancedShipNotice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" ref="AdvancedShipNoticeHeader" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AdvancedShipNoticeHeader">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Status" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReceiptKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceType" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceDocument" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceAccountingEntity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ExternReceiptKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReceiptGroup" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Signatory" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PlaceOfIssue" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="OpenQty" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="EffectiveDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ExternalReceiptKey2" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="AllowAutoReceipt" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierName" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierAddress1" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierAddress2" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierCity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierState" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierZip" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierCountry" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierPhone" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="AppointmentKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Door" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierReference" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="VehicleNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ContainerQty" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="BilledContainerQty" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ContainerKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ContainerType" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReceiptDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ExpectedReceiptDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="VehicleDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Notes" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="OriginCountry" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="DestinationCountry" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PlaceOfDelivery" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PlaceOfDischarge" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PlaceOfLoading" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IncoTerms" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RMA" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TermsNote" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TransportationMode" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Type" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="WarehouseReference" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr1" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr2" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr3" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr4" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr5" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="DriverName" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TrailerNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TrailerOwner" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ArrivalDateTime" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="AdviceNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="AdviceDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PackingSlipNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SupplierCode" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReturnFromParty" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SupplierName" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromAddressLine1" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromAddressLine2" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromAddressLine3" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromAddressLine4" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromAddressLine5" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromAddressLine6" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromCity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromState" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromZip" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromISOCountry" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromPhone" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromContact" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ShipFromEmail" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ScheduledShipDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ActualShipDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="GrossWeight" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TotalVolume" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Temperature" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="EarliestShipDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RequiredShipDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PromisedShipDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PlannedShipDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="EarliestDeliveryDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RequiredDeliveryDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PromisedDeliveryDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PlannedDeliveryDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TransportationService" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ProNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="FreightChargeBaseAmount" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="FreightChargeAmount" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TMFreightChargeCurrency" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="FreightCostBaseAmount" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="FreightCostAmount" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TMFreightCostCurrency" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CarrierRouteStatus" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="StorerKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SourceLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SourceVersion" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PoKey" />
+                <xs:element minOccurs="0" maxOccurs="unbounded"  ref="AdvancedShipNoticeDetail" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Status" type="xs:string" />
+    <xs:element name="ReceiptKey" type="xs:string" />
+    <xs:element name="ReferenceType" type="xs:string" />
+    <xs:element name="ReferenceDocument" type="xs:string" />
+    <xs:element name="ReferenceLocation" type="xs:string" />
+    <xs:element name="ReferenceAccountingEntity" type="xs:string" />
+    <xs:element name="ExternReceiptKey" type="xs:string" />
+    <xs:element name="ReceiptGroup" type="xs:string" />
+    <xs:element name="Signatory" type="xs:string" />
+    <xs:element name="PlaceOfIssue" type="xs:string" />
+    <xs:element name="OpenQty" type="xs:string" />
+    <xs:element name="EffectiveDate" type="xs:string" />
+    <xs:element name="ExternalReceiptKey2" type="xs:string" />
+    <xs:element name="AllowAutoReceipt" type="xs:string" />
+    <xs:element name="CarrierKey" type="xs:string" />
+    <xs:element name="CarrierName" type="xs:string" />
+    <xs:element name="CarrierAddress1" type="xs:string" />
+    <xs:element name="CarrierAddress2" type="xs:string" />
+    <xs:element name="CarrierCity" type="xs:string" />
+    <xs:element name="CarrierState" type="xs:string" />
+    <xs:element name="CarrierZip" type="xs:string" />
+    <xs:element name="CarrierCountry" type="xs:string" />
+    <xs:element name="CarrierPhone" type="xs:string" />
+    <xs:element name="AppointmentKey" type="xs:string" />
+    <xs:element name="Door" type="xs:string" />
+    <xs:element name="CarrierReference" type="xs:string" />
+    <xs:element name="VehicleNumber" type="xs:string" />
+    <xs:element name="ContainerQty" type="xs:string" />
+    <xs:element name="BilledContainerQty" type="xs:string" />
+    <xs:element name="ContainerKey" type="xs:string" />
+    <xs:element name="ContainerType" type="xs:string" />
+    <xs:element name="ReceiptDate" type="xs:string" />
+    <xs:element name="ExpectedReceiptDate" type="xs:string" />
+    <xs:element name="VehicleDate" type="xs:string" />
+    <xs:element name="Notes" type="xs:string" />
+    <xs:element name="OriginCountry" type="xs:string" />
+    <xs:element name="DestinationCountry" type="xs:string" />
+    <xs:element name="PlaceOfDelivery" type="xs:string" />
+    <xs:element name="PlaceOfDischarge" type="xs:string" />
+    <xs:element name="PlaceOfLoading" type="xs:string" />
+    <xs:element name="IncoTerms" type="xs:string" />
+    <xs:element name="RMA" type="xs:string" />
+    <xs:element name="TermsNote" type="xs:string" />
+    <xs:element name="TransportationMode" type="xs:string" />
+    <xs:element name="Type" type="xs:string" />
+    <xs:element name="WarehouseReference" type="xs:string" />
+    <xs:element name="SUsr1" type="xs:string" />
+    <xs:element name="SUsr2" type="xs:string" />
+    <xs:element name="SUsr3" type="xs:string" />
+    <xs:element name="SUsr4" type="xs:string" />
+    <xs:element name="SUsr5" type="xs:string" />
+    <xs:element name="DriverName" type="xs:string" />
+    <xs:element name="TrailerNumber" type="xs:string" />
+    <xs:element name="TrailerOwner" type="xs:string" />
+    <xs:element name="ArrivalDateTime" type="xs:string" />
+    <xs:element name="AdviceNumber" type="xs:string" />
+    <xs:element name="AdviceDate" type="xs:string" />
+    <xs:element name="PackingSlipNumber" type="xs:string" />
+    <xs:element name="SupplierCode" type="xs:string" />
+    <xs:element name="ReturnFromParty" type="xs:string" />
+    <xs:element name="SupplierName" type="xs:string" />
+    <xs:element name="ShipFromAddressLine1" type="xs:string" />
+    <xs:element name="ShipFromAddressLine2" type="xs:string" />
+    <xs:element name="ShipFromAddressLine3" type="xs:string" />
+    <xs:element name="ShipFromAddressLine4" type="xs:string" />
+    <xs:element name="ShipFromAddressLine5" type="xs:string" />
+    <xs:element name="ShipFromAddressLine6" type="xs:string" />
+    <xs:element name="ShipFromCity" type="xs:string" />
+    <xs:element name="ShipFromState" type="xs:string" />
+    <xs:element name="ShipFromZip" type="xs:string" />
+    <xs:element name="ShipFromISOCountry" type="xs:string" />
+    <xs:element name="ShipFromPhone" type="xs:string" />
+    <xs:element name="ShipFromContact" type="xs:string" />
+    <xs:element name="ShipFromEmail" type="xs:string" />
+    <xs:element name="ScheduledShipDate" type="xs:string" />
+    <xs:element name="ActualShipDate" type="xs:string" />
+    <xs:element name="GrossWeight" type="xs:string" />
+    <xs:element name="TotalVolume" type="xs:string" />
+    <xs:element name="Temperature" type="xs:string" />
+    <xs:element name="EarliestShipDate" type="xs:string" />
+    <xs:element name="RequiredShipDate" type="xs:string" />
+    <xs:element name="PromisedShipDate" type="xs:string" />
+    <xs:element name="PlannedShipDate" type="xs:string" />
+    <xs:element name="EarliestDeliveryDate" type="xs:string" />
+    <xs:element name="RequiredDeliveryDate" type="xs:string" />
+    <xs:element name="PromisedDeliveryDate" type="xs:string" />
+    <xs:element name="PlannedDeliveryDate" type="xs:string" />
+    <xs:element name="TransportationService" type="xs:string" />
+    <xs:element name="ProNumber" type="xs:string" />
+    <xs:element name="FreightChargeBaseAmount" type="xs:string" />
+    <xs:element name="FreightChargeAmount" type="xs:string" />
+    <xs:element name="TMFreightChargeCurrency" type="xs:string" />
+    <xs:element name="FreightCostBaseAmount" type="xs:string" />
+    <xs:element name="FreightCostAmount" type="xs:string" />
+    <xs:element name="TMFreightCostCurrency" type="xs:string" />
+    <xs:element name="CarrierRouteStatus" type="xs:string" />
+    <xs:element name="StorerKey" type="xs:string" />
+    <xs:element name="SourceLocation" type="xs:string" />
+    <xs:element name="SourceVersion" type="xs:string" />
+    <xs:element name="PoKey" type="xs:string" />
+    <xs:element name="AdvancedShipNoticeDetail">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Sku" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReceiptLineNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ExternLineNo" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ExternalLot" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="StorerKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PackKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="QtyExpected" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="QtyAdjusted" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReasonCode" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PackingSlipQty" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ToLoc" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReturnCondition" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReturnReason" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReturnType" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="DispositionCode" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="DispositionType" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReceiptKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="UOM" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceAccountingEntity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceScheduleLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceType" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceDocument" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ReferenceLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ExternReceiptKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="POLineNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="POKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="AltSku" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Id" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Status" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="DateReceived" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="VesselKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="VoyageKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="XdockKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ContainerKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ToLot" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ToId" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ConditionCode" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable01" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable02" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable03" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable04" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable05" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable06" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable07" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable08" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable09" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable10" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable11" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lottable12" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CaseCnt" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="InnerPack" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Pallet" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Cube" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="GrossWgt" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="NetWgt" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="OtherUnit1" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="OtherUnit2" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="UnitPrice" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ExtendedPrice" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="EffectiveDate" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TariffKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr1" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr2" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr3" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr4" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SUsr5" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Notes" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PalletID" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RMA" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="QCRequired" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="QCAutoAdjust" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="MatchLottable" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CubicMeter" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="HundredWeight" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SupplierName" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SubLineNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Type" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="QtyReceived" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="TareWgt" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Temperature" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RequisitionDocument" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RequisitionAccountingEntity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RequisitionLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RequisitionLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="RequisitionScheduleLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PurchaseOrderDocument" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PurchaseOrderAccountingEntity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PurchaseOrderLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PurchaseOrderLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="PurchaseOrderScheduleLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SalesOrderDocument" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SalesOrderAccountingEntity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SalesOrderLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SalesOrderLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SalesOrderScheduleLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ProductionOrderAccEntity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ProductionOrderDocument" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ProductionOrderLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ProductionOrderLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ProductionOrderScheduleLine" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SourceLocation" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SourceVersion" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IOther1" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SerialNumberLong" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SourceKey" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SourceLineNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="LOTXIDLINENUMBER" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IOFLAG" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SKU" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="LOTXIDKEY" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="CaptureBy" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IQty" />
+                <xs:element minOccurs="0" maxOccurs="unbounded"  ref="AdvanceShipNoticeUnit" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Sku" type="xs:string" />
+    <xs:element name="ReceiptLineNumber" type="xs:string" />
+    <xs:element name="ExternLineNo" type="xs:string" />
+    <xs:element name="ExternalLot" type="xs:string" />
+    <xs:element name="PackKey" type="xs:string" />
+    <xs:element name="QtyExpected" type="xs:string" />
+    <xs:element name="QtyAdjusted" type="xs:string" />
+    <xs:element name="ReasonCode" type="xs:string" />
+    <xs:element name="PackingSlipQty" type="xs:string" />
+    <xs:element name="ToLoc" type="xs:string" />
+    <xs:element name="ReturnCondition" type="xs:string" />
+    <xs:element name="ReturnReason" type="xs:string" />
+    <xs:element name="ReturnType" type="xs:string" />
+    <xs:element name="DispositionCode" type="xs:string" />
+    <xs:element name="DispositionType" type="xs:string" />
+    <xs:element name="UOM" type="xs:string" />
+    <xs:element name="ReferenceScheduleLine" type="xs:string" />
+    <xs:element name="ReferenceLine" type="xs:string" />
+    <xs:element name="POLineNumber" type="xs:string" />
+    <xs:element name="POKey" type="xs:string" />
+    <xs:element name="AltSku" type="xs:string" />
+    <xs:element name="Id" type="xs:string" />
+    <xs:element name="DateReceived" type="xs:string" />
+    <xs:element name="VesselKey" type="xs:string" />
+    <xs:element name="VoyageKey" type="xs:string" />
+    <xs:element name="XdockKey" type="xs:string" />
+    <xs:element name="ToLot" type="xs:string" />
+    <xs:element name="ToId" type="xs:string" />
+    <xs:element name="ConditionCode" type="xs:string" />
+    <xs:element name="Lottable01" type="xs:string" />
+    <xs:element name="Lottable02" type="xs:string" />
+    <xs:element name="Lottable03" type="xs:string" />
+    <xs:element name="Lottable04" type="xs:string" />
+    <xs:element name="Lottable05" type="xs:string" />
+    <xs:element name="Lottable06" type="xs:string" />
+    <xs:element name="Lottable07" type="xs:string" />
+    <xs:element name="Lottable08" type="xs:string" />
+    <xs:element name="Lottable09" type="xs:string" />
+    <xs:element name="Lottable10" type="xs:string" />
+    <xs:element name="Lottable11" type="xs:string" />
+    <xs:element name="Lottable12" type="xs:string" />
+    <xs:element name="CaseCnt" type="xs:string" />
+    <xs:element name="InnerPack" type="xs:string" />
+    <xs:element name="Pallet" type="xs:string" />
+    <xs:element name="Cube" type="xs:string" />
+    <xs:element name="GrossWgt" type="xs:string" />
+    <xs:element name="NetWgt" type="xs:string" />
+    <xs:element name="OtherUnit1" type="xs:string" />
+    <xs:element name="OtherUnit2" type="xs:string" />
+    <xs:element name="UnitPrice" type="xs:string" />
+    <xs:element name="ExtendedPrice" type="xs:string" />
+    <xs:element name="TariffKey" type="xs:string" />
+    <xs:element name="PalletID" type="xs:string" />
+    <xs:element name="QCRequired" type="xs:string" />
+    <xs:element name="QCAutoAdjust" type="xs:string" />
+    <xs:element name="MatchLottable" type="xs:string" />
+    <xs:element name="CubicMeter" type="xs:string" />
+    <xs:element name="HundredWeight" type="xs:string" />
+    <xs:element name="SubLineNumber" type="xs:string" />
+    <xs:element name="QtyReceived" type="xs:string" />
+    <xs:element name="TareWgt" type="xs:string" />
+    <xs:element name="RequisitionDocument" type="xs:string" />
+    <xs:element name="RequisitionAccountingEntity" type="xs:string" />
+    <xs:element name="RequisitionLocation" type="xs:string" />
+    <xs:element name="RequisitionLine" type="xs:string" />
+    <xs:element name="RequisitionScheduleLine" type="xs:string" />
+    <xs:element name="PurchaseOrderDocument" type="xs:string" />
+    <xs:element name="PurchaseOrderAccountingEntity" type="xs:string" />
+    <xs:element name="PurchaseOrderLocation" type="xs:string" />
+    <xs:element name="PurchaseOrderLine" type="xs:string" />
+    <xs:element name="PurchaseOrderScheduleLine" type="xs:string" />
+    <xs:element name="SalesOrderDocument" type="xs:string" />
+    <xs:element name="SalesOrderAccountingEntity" type="xs:string" />
+    <xs:element name="SalesOrderLocation" type="xs:string" />
+    <xs:element name="SalesOrderLine" type="xs:string" />
+    <xs:element name="SalesOrderScheduleLine" type="xs:string" />
+    <xs:element name="ProductionOrderAccEntity" type="xs:string" />
+    <xs:element name="ProductionOrderDocument" type="xs:string" />
+    <xs:element name="ProductionOrderLocation" type="xs:string" />
+    <xs:element name="ProductionOrderLine" type="xs:string" />
+    <xs:element name="ProductionOrderScheduleLine" type="xs:string" />
+    <xs:element name="IOther1" type="xs:string" />
+    <xs:element name="SerialNumberLong" type="xs:string" />
+    <xs:element name="SourceKey" type="xs:string" />
+    <xs:element name="SourceLineNumber" type="xs:string" />
+    <xs:element name="LOTXIDLINENUMBER" type="xs:string" />
+    <xs:element name="IOFLAG" type="xs:string" />
+    <xs:element name="SKU" type="xs:string" />
+    <xs:element name="LOTXIDKEY" type="xs:string" />
+    <xs:element name="CaptureBy" type="xs:string" />
+    <xs:element name="IQty" type="xs:string" />
+    <xs:element name="AdvanceShipNoticeUnit">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SerialNumber" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="SerialNumberLong" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="ContainerID" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="FillQuantity" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="Lot" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IOther2" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IOther3" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IOther4" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="IOther5" />
+                <xs:element minOccurs="0" maxOccurs="1"  ref="GrossWeight" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SerialNumber" type="xs:string" />
+    <xs:element name="ContainerID" type="xs:string" />
+    <xs:element name="FillQuantity" type="xs:string" />
+    <xs:element name="Lot" type="xs:string" />
+    <xs:element name="IOther2" type="xs:string" />
+    <xs:element name="IOther3" type="xs:string" />
+    <xs:element name="IOther4" type="xs:string" />
+    <xs:element name="IOther5" type="xs:string" />
+</xs:schema>
